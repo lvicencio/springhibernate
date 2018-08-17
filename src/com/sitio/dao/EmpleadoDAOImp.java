@@ -1,5 +1,8 @@
 package com.sitio.dao;
 
+import java.util.List;
+
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,6 +21,15 @@ public class EmpleadoDAOImp implements EmpleadoDAO {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().save(empleado);
 		
+	}
+
+	@Override
+	public List<Empleado> listadoEmpleado() {
+		Session currentSession = sessionFactory.getCurrentSession();
+		List<Empleado> laQuery = currentSession.createQuery("FROM Empleado").list();
+		return laQuery;
+		
+		//return sessionFactory.getCurrentSession().createQuery("FROM empleado").list();
 	}
 
 }

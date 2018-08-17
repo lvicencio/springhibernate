@@ -1,5 +1,7 @@
 package com.sitio.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,11 +28,26 @@ public class EmpleadoController {
 	}
 	
 	@RequestMapping(value="/guardarEmpleado")
-	public String guardarEmpleado(@ModelAttribute("empleado") Empleado empleado) {
+	public String guardarEmpleado(@ModelAttribute("empleado") Empleado empleado,
+			Model model) {
 		
 		empleadoService.saveEmpleado(empleado);
 		
-		return "ListadoEstudiante";
+		//envia y carga el listado de empleados (Model model)
+		List<Empleado> listaDeEmpleados = empleadoService.listadoEmpleado();
+		model.addAttribute("losEmpleados", listaDeEmpleados);
+		//fin  carga
+		return "ListadoEmpleado";
 	}
+	
+	
+	@RequestMapping(value = "/ListadoEmpleado")
+	public String listaEmpleados(Model model) {
+		
+		List<Empleado> listaDeEmpleados = empleadoService.listadoEmpleado();
+		model.addAttribute("losEmpleados", listaDeEmpleados);
+		return "ListadoEmpleado";
+	}
+	
 	
 }

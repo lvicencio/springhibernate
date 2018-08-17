@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1>Pagina de Inicio</h1>
-<a href="vistaempleado">Agregar Empleado</a>
+<a href="vistaempleado">Agregar Empleado</a> <br>
+<a href="ListadoEmpleado">Listado de Empleados</a>
 </body>
 </html>
