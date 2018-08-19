@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sitio.entity.Empleado;
 import com.sitio.service.EmpleadoService;
@@ -48,6 +49,38 @@ public class EmpleadoController {
 		model.addAttribute("losEmpleados", listaDeEmpleados);
 		return "ListadoEmpleado";
 	}
+	
+	@RequestMapping(value= "/UpdateFormulario")
+	public String UpdateFormulario(@RequestParam("empleadoId") Integer empleadoId,
+			Model model) {
+		Empleado empleado = findById(empleadoId);
+		
+		model.addAttribute("empleado", empleado);
+		return "vistaempleado";
+		
+	}
+	
+	@RequestMapping(value= "/eliminarEmpleado")
+	public String eliminarEmpleado(@RequestParam("empleadoId") Integer empleadoId) {
+		Empleado empleadoEliminar = findById(empleadoId);
+		empleadoService.eliminarEmpleado(empleadoEliminar);
+		
+		
+		return "redirect:/ListadoEmpleado";
+		
+		
+	}
+	
+	
+	
+	private Empleado findById(Integer empleadoId) {
+		Empleado empleado = empleadoService.getEmpleadoById(empleadoId);
+		
+		return empleado;
+	
+	}
+	
+	
 	
 	
 }

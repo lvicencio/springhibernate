@@ -27,4 +27,16 @@ public class EmpleadoServiceImp implements EmpleadoService {
 		return empleadoDAO.listadoEmpleado();
 	}
 
+	@Override @Transactional
+	public Empleado getEmpleadoById(Integer empleadoId) {
+		// TODO Auto-generated method stub
+		return empleadoDAO.getEmpleadoById(empleadoId);
+	}
+
+	@Override @Transactional
+	public void eliminarEmpleado(Empleado empleadoEliminar) {
+		// TODO Auto-generated method stub
+		empleadoDAO.eliminarEmpleado(empleadoEliminar);
+	}
+
 }

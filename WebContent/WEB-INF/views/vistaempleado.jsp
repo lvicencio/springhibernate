@@ -5,14 +5,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <title>Empleado de la Empresa</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 	<h1>Empleado</h1>
 	<hr>
 
 	<f:form modelAttribute="empleado" action="guardarEmpleado">
+	<input type="hidden" value = "${empleado.skill }" id="skill" >
 		<table border="1">
 			<f:hidden path="id"/>
 			<tr>
@@ -80,5 +83,21 @@
 			</tr>
 		</table>
 	</f:form>
+	
+	<a href="ListadoEmpleado">Listar Todos los Empleados</a>  
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var skill = $('#skill').val().split(",");
+			var $checkboxes = $("input[type=checkbox]");
+			$checkboxes.each(function(id, element) {
+				if (skill.indexOf(element.value) != -1) {
+					element.setAttribute("checked", "checked");
+				}
+				
+			});
+		});
+	</script>
+	 
 </body>
 </html>

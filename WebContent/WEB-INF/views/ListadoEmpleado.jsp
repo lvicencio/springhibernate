@@ -6,12 +6,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Listado de Empleados</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 <h1>Listado de Empleados</h1>
-
-
+<hr>
+<p>
+<button onclick="window.location.href= 'vistaempleado'"; return false; >Agregar Nuevo Empleado</button>
+</p>
 	<table border="1">
 		<tr>
 			<th>Nombre</th>
@@ -21,10 +24,17 @@
 			<th>Genero</th>
 			<th>Habilidades</th>
 			<th>Fecha de Nacimiento</th>
+			<th>Opciones</th>
 		
 		</tr>
 
 			<c:forEach items="${losEmpleados}" var="empleado">
+				<c:url var="updateLink" value="UpdateFormulario">
+					<c:param name="empleadoId" value="${empleado.id}"></c:param>				
+				</c:url>
+				<c:url var="eliminarLink" value="eliminarEmpleado">
+					<c:param name="empleadoId" value="${empleado.id}"></c:param>				
+				</c:url>
 				<tr>
 					<th>${empleado.full_name }</th>
 					<th>${empleado.email }</th>
@@ -33,6 +43,7 @@
 					<th>${empleado.genero }</th>
 					<th>${empleado.skill }</th>
 					<th>${empleado.fecha_nacimiento }</th>
+					<th> <a href="${updateLink}">Editar</a>  |<a onclick="if(!(confirm('seguro de eliminar este empleado?'))) return false" href="${eliminarLink}">Eliminar</a></th>
 				</tr>
 			</c:forEach>
 

@@ -19,7 +19,7 @@ public class EmpleadoDAOImp implements EmpleadoDAO {
 	@Override
 	public void saveEmpleado(Empleado empleado) {
 		// TODO Auto-generated method stub
-		sessionFactory.getCurrentSession().save(empleado);
+		sessionFactory.getCurrentSession().saveOrUpdate(empleado);
 		
 	}
 
@@ -30,6 +30,20 @@ public class EmpleadoDAOImp implements EmpleadoDAO {
 		return laQuery;
 		
 		//return sessionFactory.getCurrentSession().createQuery("FROM empleado").list();
+	}
+
+	@Override
+	public Empleado getEmpleadoById(Integer empleadoId) {
+		// TODO Auto-generated method stub
+		Empleado empleado = sessionFactory.getCurrentSession().get(Empleado.class, empleadoId);
+		return empleado;
+	}
+
+	@Override
+	public void eliminarEmpleado(Empleado empleadoEliminar) {
+		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().delete(empleadoEliminar);
+		
 	}
 
 }

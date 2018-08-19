@@ -10,4 +10,8 @@ public interface EmpleadoDAO {
 
 	public List<Empleado> listadoEmpleado();
 
+	public Empleado getEmpleadoById(Integer empleadoId);
+
+	public void eliminarEmpleado(Empleado empleadoEliminar);
+
 }
