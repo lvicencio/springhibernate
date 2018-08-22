@@ -13,5 +13,6 @@ public interface EmpleadoDAO {
 	public Empleado getEmpleadoById(Integer empleadoId);
 
 	public void eliminarEmpleado(Empleado empleadoEliminar);
+	
 
 }

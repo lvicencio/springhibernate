@@ -11,6 +11,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
+
+<c:choose>
+		<c:when test="${empty loggedInUser.username }">
+			<a href="login">Login</a>
+		</c:when>
+		<c:otherwise>
+			Hola ${loggedInUser.username }! <a href="logout">Salir</a>
+			
+			<button onclick="window.location.href= 'vistaempleado'"; return false; >Agregar Nuevo Empleado</button>
+	
+
+
+
 	<h1>Empleado</h1>
 	<hr>
 
@@ -98,6 +111,9 @@
 			});
 		});
 	</script>
-	 
+
+
+	</c:otherwise>
+	</c:choose>	 
 </body>
 </html>

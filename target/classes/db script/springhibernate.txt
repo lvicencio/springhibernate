@@ -1,0 +1,20 @@
+create table empleado(
+     
+	id int primary key not null auto_increment,
+     
+	full_name varchar(100) not null,
+     
+	email varchar(50) not null,
+     
+	direccion varchar(50) not null,
+     
+	ciudad varchar(50) not null,
+     
+	genero varchar(50) not null,
+     
+	skill varchar(50) not null,
+     
+	fecha_nacimiento varchar(45) not null
+
+
+ );

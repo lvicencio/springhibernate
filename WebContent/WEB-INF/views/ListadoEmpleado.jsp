@@ -10,11 +10,30 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
+<div>
+	<c:choose>
+		<c:when test="${empty loggedInUser.username }">
+			<a href="login">Login</a>
+		</c:when>
+		<c:otherwise>
+			Hola ${loggedInUser.username }! <a href="logout">Salir</a>
+			
+			<a href="vistaempleado" >Nuevo Empleado</a>
+			<button onclick="window.location.href= 'vistaempleado'"; return false; >Agregar Nuevo Empleado</button>
+		</c:otherwise>
+	</c:choose>
+<hr>
+</div>
 <h1>Listado de Empleados</h1>
 <hr>
 <p>
-<button onclick="window.location.href= 'vistaempleado'"; return false; >Agregar Nuevo Empleado</button>
+
+
+
+
+
 </p>
+
 	<table border="1">
 		<tr>
 			<th>Nombre</th>

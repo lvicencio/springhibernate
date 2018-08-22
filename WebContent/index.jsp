@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="login">Identificarse</a> <br>
+<hr>
 <h1>Pagina de Inicio</h1>
 <a href="vistaempleado">Agregar Empleado</a> <br>
 <a href="ListadoEmpleado">Listado de Empleados</a>

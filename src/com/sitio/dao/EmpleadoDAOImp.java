@@ -23,6 +23,7 @@ public class EmpleadoDAOImp implements EmpleadoDAO {
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Empleado> listadoEmpleado() {
 		Session currentSession = sessionFactory.getCurrentSession();
