@@ -43,6 +43,7 @@
 			<th>Genero</th>
 			<th>Habilidades</th>
 			<th>Fecha de Nacimiento</th>
+			<th>Contactos</th>
 			<th>Opciones</th>
 		
 		</tr>
@@ -54,6 +55,9 @@
 				<c:url var="eliminarLink" value="eliminarEmpleado">
 					<c:param name="empleadoId" value="${empleado.id}"></c:param>				
 				</c:url>
+				<c:url var="contactoLink" value="contactos">
+					<c:param name="empleadoId" value="${empleado.id}"></c:param>				
+				</c:url>
 				<tr>
 					<th>${empleado.full_name }</th>
 					<th>${empleado.email }</th>
@@ -62,6 +66,7 @@
 					<th>${empleado.genero }</th>
 					<th>${empleado.skill }</th>
 					<th>${empleado.fecha_nacimiento }</th>
+					<th><a href="${contactoLink}">Contactos</a> </th>
 					<th> <a href="${updateLink}">Editar</a>  |<a onclick="if(!(confirm('seguro de eliminar este empleado?'))) return false" href="${eliminarLink}">Eliminar</a></th>
 				</tr>
 			</c:forEach>

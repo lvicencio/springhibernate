@@ -1,9 +1,12 @@
 package com.sitio.entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -39,7 +42,28 @@ public class Empleado {
 	@Column(name = "fecha_nacimiento")
 	private String fecha_nacimiento;
 	
+	//relacion uno a muchos
+	@OneToMany(mappedBy = "empleado")
+	private Set<Contacto> contactos;
 	
+	
+	
+	
+	public Empleado() {
+		
+	}
+	public Empleado(Integer id, String full_name, String email, String direccion, String ciudad, String genero,
+			String skill, String fecha_nacimiento, Set<Contacto> contactos) {
+		this.id = id;
+		this.full_name = full_name;
+		this.email = email;
+		this.direccion = direccion;
+		this.ciudad = ciudad;
+		this.genero = genero;
+		this.skill = skill;
+		this.fecha_nacimiento = fecha_nacimiento;
+		this.contactos = contactos;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -88,6 +112,15 @@ public class Empleado {
 	public void setFecha_nacimiento(String fecha_nacimiento) {
 		this.fecha_nacimiento = fecha_nacimiento;
 	}
+	public Set<Contacto> getContactos() {
+		return contactos;
+	}
+	public void setContactos(Set<Contacto> contactos) {
+		this.contactos = contactos;
+	}
+	
+	
+	
 	
 	
 }

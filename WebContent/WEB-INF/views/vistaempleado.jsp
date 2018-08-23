@@ -15,13 +15,17 @@
 <c:choose>
 		<c:when test="${empty loggedInUser.username }">
 			<a href="login">Login</a>
+			
+			<hr>
+			
+		<h1>No esta autorizado para realizar la acción</h1>
+		
 		</c:when>
 		<c:otherwise>
 			Hola ${loggedInUser.username }! <a href="logout">Salir</a>
 			
 			<button onclick="window.location.href= 'vistaempleado'"; return false; >Agregar Nuevo Empleado</button>
 	
-
 
 
 	<h1>Empleado</h1>
