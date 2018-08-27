@@ -8,6 +8,6 @@ import com.sitio.entity.Empleado;
 public interface ContactoService {
 
 	public void save(Empleado empleado, Contacto contacto);
-	public List<Empleado> findAll();
+	public List<Contacto> findAll(Integer empleadoId);
 		
 }

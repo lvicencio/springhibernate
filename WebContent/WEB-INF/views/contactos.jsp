@@ -33,9 +33,9 @@
 <div>
 	<c:out value="${resultado}"></c:out> <br/><br/>
 </div>
+
 	<f:form modelAttribute="contacto" action="guardarContacto">
-	<input type="text" value = "${empleado.id }" id="skill" >
-	<input type="text" value = "${empleado.full_name }" id="skill" >
+	
 		<table border="1">
 <%-- 			<f:hidden path="id"/> --%>
 			
@@ -59,11 +59,36 @@
 			<tr>
 				<td></td>
 				<td>
-					<input type="submit" value="Enviar">
+					<input type="submit" value="Agregar Contacto">
 				</td>
 			</tr>
 		</table>
+		<hr>
 	</f:form>
+	
+		<br>
+	<!-- contactos -->
+	
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>Medio</th>
+			<th>dato</th>
+			
+		
+		</tr>
+
+			<c:forEach items="${contactos}" var="contactos">
+				<tr>
+					<th>${contactos.idC }</th>
+					<th>${contactos.medio }</th>
+					<th>${contactos.dato }</th>
+					
+				</tr>
+			</c:forEach>
+
+	</table>
+	
 	
 	<a href="ListadoEmpleado">Listar Todos los Empleados</a>  
 	

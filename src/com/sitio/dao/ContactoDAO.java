@@ -8,5 +8,5 @@ import com.sitio.entity.Empleado;
 public interface ContactoDAO {
 
 	public void save(Contacto contacto);
-	public List<Contacto> findAll();
+	public List<Contacto> findAll(Empleado empleado);
 }

@@ -8,6 +8,9 @@
  <!-- Add support for conversion, formatting and validation support -->
  <mvc:annotation-driven />
  
+ <mvc:resources mapping="/webjars/**" location="/webjars/"/>
+ 
+ 
  <!-- Define Spring MVC view resolver -->
  <beans:bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
   <beans:property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />

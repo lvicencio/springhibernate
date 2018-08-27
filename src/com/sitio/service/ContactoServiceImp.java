@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sitio.dao.ContactoDAO;
+import com.sitio.dao.EmpleadoDAO;
 import com.sitio.entity.Contacto;
 import com.sitio.entity.Empleado;
 
@@ -15,6 +16,8 @@ public class ContactoServiceImp implements ContactoService {
 
 	@Autowired
 	private ContactoDAO contactoDAO;
+	@Autowired
+	private EmpleadoDAO empleadoDAO;
 
 	@Override @Transactional
 	public void save(Empleado empleado, Contacto contacto) {
@@ -25,10 +28,12 @@ public class ContactoServiceImp implements ContactoService {
 		
 	}
 
+
 	@Override @Transactional
-	public List<Empleado> findAll() {
+	public List<Contacto> findAll(Integer empleadoId) {
 		// TODO Auto-generated method stub
-		return null;
+		Empleado empleado = empleadoDAO.getEmpleadoById(empleadoId);
+		return contactoDAO.findAll(empleado);
 	}
 	
 	

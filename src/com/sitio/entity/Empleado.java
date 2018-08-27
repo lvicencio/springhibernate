@@ -2,14 +2,17 @@ package com.sitio.entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="empleado")
@@ -22,28 +25,36 @@ public class Empleado {
 	private Integer id;
 	
 	@Column(name = "full_name")
+	@NotNull
 	private String full_name;
 	
 	@Column(name = "email")
+	@NotEmpty
 	private String email;
 	
 	@Column(name = "direccion")
+	@NotEmpty
 	private String direccion;
 	
 	@Column(name = "ciudad")
+	@NotEmpty
 	private String ciudad;
 	
 	@Column(name = "genero")
+	@NotEmpty
 	private String genero;
 	
 	@Column(name = "skill")
+	@NotEmpty
 	private String skill;
 	
 	@Column(name = "fecha_nacimiento")
+	@NotEmpty
 	private String fecha_nacimiento;
 	
 	//relacion uno a muchos
-	@OneToMany(mappedBy = "empleado")
+	@OneToMany(mappedBy = "empleado", cascade = CascadeType.ALL)
+	//@JoinColumn(name = "id") //
 	private Set<Contacto> contactos;
 	
 	

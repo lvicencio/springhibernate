@@ -1,10 +1,11 @@
 package com.sitio.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -32,6 +33,9 @@ public class ContactoController {
 		Empleado empleado = findById(empleadoId);
 		model.addAttribute("empleado", empleado);
 		model.addAttribute("contacto", new Contacto());
+		List<Contacto> contactos = contactoService.findAll(empleadoId);
+		System.out.println(contactos);
+		model.addAttribute("contactos", contactos); //
 				
 		return "contactos";
 	}
