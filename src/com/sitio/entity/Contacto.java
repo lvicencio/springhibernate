@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "contacto")
 public class Contacto {
@@ -22,6 +23,7 @@ public class Contacto {
 	private String medio;
 	
 	@Column(name="dato")
+	
 	private String dato;
 
 	//relacion muchos a 1

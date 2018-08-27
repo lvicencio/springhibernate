@@ -38,17 +38,23 @@
 				<f:hidden path="id" />
 				<tr >
 					<td>Nombre Completo</td>
-					<td><f:input path="full_name" /></td>
+					<td><f:input path="full_name" />
+						<f:errors path="full_name" cssStyle="color:red"/>
+					</td>
 				</tr>
 
 				<tr>
 					<td>Correo Electronico</td>
-					<td><f:input path="email" /></td>
+					<td><f:input path="email" />
+						<f:errors path="email" cssStyle="color:red"/>
+					</td>
 				</tr>
 
 				<tr>
 					<td>Dirección</td>
-					<td><f:textarea path="direccion" /></td>
+					<td><f:textarea path="direccion" />
+						<f:errors path="direccion" cssStyle="color:red"/>
+					</td>
 				</tr>
 
 				<tr>
@@ -61,13 +67,17 @@
 							<f:option value="Valdivia">Valdivia</f:option>
 							<f:option value="Santiago">Santiago</f:option>
 							<f:option value="Parenas">Punta Arenas</f:option>
-						</f:select></td>
+						</f:select>
+						<f:errors path="ciudad" cssStyle="color:red"/>
+						</td>
 				</tr>
 
 				<tr>
 					<td>Genero</td>
 					<td><f:radiobutton path="genero" value="Hombre" />Masculino 
-					    <f:radiobutton path="genero" value="Femenino" />Femenino</td>
+					    <f:radiobutton path="genero" value="Femenino" />Femenino
+					    <f:errors path="genero" cssStyle="color:red"/>
+					</td>
 				</tr>
 
 				<tr>
@@ -78,12 +88,16 @@
 							value="Php" />PHP <br> <f:checkbox path="skill"
 							value="Python" />Python <br> <f:checkbox path="skill"
 							value="Angular" />Angular <br> <f:checkbox path="skill"
-							value="Vb" />Visual Basic <br></td>
+							value="Vb" />Visual Basic <br>
+							<f:errors path="skill" cssStyle="color:red"/>
+					</td>
 				</tr>
 
 				<tr>
 					<td>Fecha de Nacimiento</td>
-					<td><f:input path="fecha_nacimiento" type="date" /></td>
+					<td><f:input path="fecha_nacimiento" type="date" />
+						<f:errors path="fecha_nacimiento" cssStyle="color:red"/>
+					</td>
 				</tr>
 
 				<tr>

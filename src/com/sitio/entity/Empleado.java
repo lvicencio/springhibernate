@@ -9,9 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
@@ -25,19 +26,23 @@ public class Empleado {
 	private Integer id;
 	
 	@Column(name = "full_name")
-	@NotNull
+	@NotEmpty
+	@Size(min=3, max=50)
 	private String full_name;
 	
 	@Column(name = "email")
 	@NotEmpty
+	@Email
 	private String email;
 	
 	@Column(name = "direccion")
 	@NotEmpty
+	@Size(min=3, max=100)
 	private String direccion;
 	
 	@Column(name = "ciudad")
 	@NotEmpty
+	@Size(min=3)
 	private String ciudad;
 	
 	@Column(name = "genero")

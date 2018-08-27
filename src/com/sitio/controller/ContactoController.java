@@ -2,6 +2,8 @@ package com.sitio.controller;
 
 import java.util.List;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,6 +48,7 @@ public class ContactoController {
 			@ModelAttribute("empleado") Empleado empleado,
 			RedirectAttributes ra) {
 		
+				
 		contactoService.save(empleado, contacto);
 		ra.addFlashAttribute("resultado", "Agregado Contacto");
 		return "redirect:/contactos?empleadoId=" + empleado.getId();

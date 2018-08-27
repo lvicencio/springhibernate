@@ -73,10 +73,10 @@
 					<th>${empleado.genero }</th>
 					<th>${empleado.skill }</th>
 					<th>${empleado.fecha_nacimiento }</th>
-					<th><a href="${contactoLink}">Contactos</a></th>
-					<th><a href="${updateLink}">Editar</a> |<a
+					<th><a href="${contactoLink}">Contactos |</a></th>
+					<th><a href="${updateLink}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"> Editar </span>|</a> <a
 						onclick="if(!(confirm('seguro de eliminar este empleado?'))) return false"
-						href="${eliminarLink}">Eliminar</a></th>
+						href="${eliminarLink}"><span class="glyphicon glyphicon-trash" aria-hidden="true"> Eliminar </span></a></th>
 				</tr>
 			</c:forEach>
 
